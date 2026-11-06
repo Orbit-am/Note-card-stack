@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Note Card Stack</title>
+  <!-- Phosphor Icons -->
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Card Stack View -->
+  <div class="container">
+    <!-- Left Navigation / Action Controls -->
+    <div class="sidebar left-controls">
+      <!-- Target this button in JS to open modal -->
+      <button class="circle-btn addNote" id="openModalBtn" aria-label="Add Note"><i class="ph ph-plus"></i></button>
+      <button class="circle-btn upBtn" aria-label="Previous"><i class="ph ph-arrow-up"></i></button>
+      <button class="circle-btn downBtn" aria-label="Next"><i class="ph ph-arrow-down"></i></button>
+    </div>
+
+    <!-- Center Card Stack -->
+    <div class="stack-wrapper">
+      <div class="card-back"></div>
+      <div class="profile-card">
+        <div class="avatar-wrapper">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80" alt="Avatar" class="avatar" />
+        </div>
+
+        <h2 class="name">Fatima Uma</h2>
+
+        <div class="info-list">
+          <div class="info-row">
+            <span class="label">Home town</span>
+            <span class="value">Singapore</span>
+          </div>
+          <div class="info-row">
+            <span class="label">Bookings</span>
+            <span class="value">3 times</span>
+          </div>
+        </div>
+
+        <div class="action-buttons">
+          <button class="btn btn-primary"><i class="ph ph-phone"></i> Call</button>
+          <button class="btn btn-secondary">Message</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Color Palette Indicators -->
+    <div class="sidebar right-colors">
+      <button class="color-dot color-black" aria-label="Black"></button>
+      <button class="color-dot color-purple" aria-label="Purple"></button>
+      <button class="color-dot color-orange" aria-label="Orange"></button>
+      <button class="color-dot color-teal" aria-label="Teal"></button>
+    </div>
+  </div>
+
+  <!-- Modal Overlay (Add class "active" to show) -->
+  <div class="modal-overlay" id="noteModal">
+    <div class="modal-card">
+      <h2 class="modal-title">New Call</h2>
+
+      <form class="note-form" id="callForm">
+        <!-- Image URL -->
+        <div class="form-group">
+          <label for="imageUrl">Image URL</label>
+          <input required type="text" id="imageUrl" placeholder="https://example.com/photo.jpg" />
+        </div>
+
+        <!-- Full Name -->
+        <div class="form-group">
+          <label for="fullName">Full Name</label>
+          <input required type="text" id="fullName" placeholder="Enter full name" />
+        </div>
+
+        <!-- Home Town -->
+        <div class="form-group">
+          <label for="homeTown">Home Town</label>
+          <input required type="text" id="homeTown" placeholder="Enter home town" />
+        </div>
+
+        <!-- Purpose -->
+        <div class="form-group">
+          <label for="purpose">Purpose</label>
+          <input required type="text" id="purpose" placeholder="e.g., Quick appointment note" />
+        </div>
+
+        <!-- Category Radio Group -->
+        <div class="form-group">
+          <label class="category-label">Category</label>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input required type="radio" name="category" value="Emergency" />
+              <span class="radio-custom"></span>
+              Emergency
+            </label>
+            <label class="radio-option">
+              <input required type="radio" name="category" value="Important" />
+              <span class="radio-custom"></span>
+              Important
+            </label>
+            <label class="radio-option">
+              <input required type="radio" name="category" value="Urgent" />
+              <span class="radio-custom"></span>
+              Urgent
+            </label>
+            <label class="radio-option">
+              <input required type="radio" name="category" value="No Rush" />
+              <span class="radio-custom"></span>
+              No Rush
+            </label>
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="form-actions">
+          <button type="submit" class="submit-btn">Create Note</button>
+          <button type="button" class="close-btn" id="closeModalBtn">Close</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
